@@ -24,7 +24,7 @@
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "https://${env.ORIGEN_ATT}/gw/usageConsumption/5.0.0/queryUsageConsumption/${params.dn}"
+              "baseUrl": "${env.ORIGEN_ATT}"
             }
           },
           "policies": {
@@ -47,7 +47,7 @@
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "https://${env.ORIGEN_ATT}/gw/cancelSubscription/1.0.0/ATTMx/OSBEv/Mtx/subscription/cancelSubscription"
+              "baseUrl": "${env.ORIGEN_ATT}"
             }
           },
           "policies": {
@@ -70,7 +70,7 @@
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "https://${env.ORIGEN_ATT}/gw/UnifiedProductOrderCapture/1.0.0/v2/postOrder"
+              "baseUrl": "${env.ORIGEN_ATT}"
             }
           },
           "policies": {
@@ -93,22 +93,14 @@
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "https://${env.ORIGEN_ATT}/gw/UnifiedProductOrderCapture_V2/1.0.0/v2/postOrder"
+              "baseUrl": "${env.ORIGEN_ATT}"
             }
           },
           "policies": {
             "inbound": []
           }
         },
-        "operationId": "new-route-c193cdaa",
-        "additionalOperationContext": {
-          "oasFilePath": "/config/routes.oas.json",
-          "method": "post",
-          "path": "/gw/UnifiedProductOrderCapture_V2/1.0.0/v2/postOrder",
-          "pathZuploConfig": {
-            "pathMode": "open-api"
-          }
-        }
+        "operationId": "new-route-c193cdaa"
       }
     }
   },
