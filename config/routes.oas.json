@@ -11,217 +11,104 @@
     }
   },
   "paths": {
-    "/todos": {
+    "/gw/usageConsumption/5.0.0/queryUsageConsumption/:dn": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
       "get": {
-        "summary": "Get all todos",
-        "description": "**Retrieves a complete list of all todo items** from the system. This endpoint returns all todos regardless of their completion status or owner, making it useful for displaying comprehensive todo lists or performing bulk operations.",
-        "responses": {
-          "200": {
-            "description": "A list of todos",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Todo"
-                  }
-                },
-                "examples": {
-                  "mixed_todos": {
-                    "summary": "A list of todos with different completion states",
-                    "value": [
-                      {
-                        "id": 1,
-                        "title": "Buy groceries",
-                        "completed": false,
-                        "userId": 123
-                      },
-                      {
-                        "id": 2,
-                        "title": "Write documentation",
-                        "completed": true,
-                        "userId": 456
-                      },
-                      {
-                        "id": 3,
-                        "title": "Review pull requests",
-                        "completed": false,
-                        "userId": 123
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "get-all-todos",
+        "summary": "ML GET",
+        "description": "",
         "x-zuplo-route": {
           "corsPolicy": "none",
           "handler": {
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "https://todo.zuplo.io"
-            }
-          }
-        },
-        "tags": ["Todo"]
-      },
-      "post": {
-        "summary": "Create a new todo",
-        "description": "**Creates a new todo item** with the provided details. The todo will be assigned a unique ID automatically and can include a title, completion status, and user association. This is the primary endpoint for adding new tasks to the system.",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateTodo"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Todo created successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Todo"
-                },
-                "examples": {
-                  "new_todo": {
-                    "summary": "A newly created todo",
-                    "value": {
-                      "id": 4,
-                      "title": "Deploy application",
-                      "completed": false,
-                      "userId": 789
-                    }
-                  }
-                }
-              }
+              "baseUrl": "https://${env.ORIGEN_ATT}/gw/usageConsumption/5.0.0/queryUsageConsumption/${params.dn}"
             }
           },
-          "400": {
-            "description": "Invalid request body"
+          "policies": {
+            "inbound": []
           }
         },
-        "operationId": "create-todo",
-        "x-zuplo-route": {
-          "corsPolicy": "none",
-          "handler": {
-            "export": "urlForwardHandler",
-            "module": "$import(@zuplo/runtime)",
-            "options": {
-              "baseUrl": "https://todo.zuplo.io"
-            }
-          }
-        },
-        "tags": ["Todo"]
+        "operationId": "new-route-9247233f"
       }
     },
-    "/todos/{id}": {
-      "put": {
-        "summary": "Update a todo",
-        "description": "**Updates an existing todo item** by its unique identifier. You can modify any combination of the todo's properties including title, completion status, and user assignment. All changes are applied atomically to ensure data consistency.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            },
-            "description": "The todo ID"
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateTodo"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Todo updated successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Todo"
-                },
-                "examples": {
-                  "updated_todo": {
-                    "summary": "A todo that has been updated",
-                    "value": {
-                      "id": 1,
-                      "title": "Buy groceries and cook dinner",
-                      "completed": true,
-                      "userId": 123
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid request body"
-          },
-          "404": {
-            "description": "Todo not found"
-          }
-        },
-        "operationId": "update-todo",
-        "x-zuplo-route": {
-          "corsPolicy": "none",
-          "handler": {
-            "export": "urlForwardHandler",
-            "module": "$import(@zuplo/runtime)",
-            "options": {
-              "baseUrl": "https://todo.zuplo.io"
-            }
-          }
-        },
-        "tags": ["Todo"]
+    "/gw/cancelSubscription/1.0.0/ATTMx/OSBEv/Mtx/subscription/cancelSubscription": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
       },
-      "delete": {
-        "summary": "Delete a todo",
-        "description": "**Permanently removes a todo item** from the system using its unique identifier. This operation cannot be undone, so use with caution. The endpoint will return a 404 error if the specified todo does not exist.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            },
-            "description": "The todo ID"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Todo deleted successfully"
-          },
-          "404": {
-            "description": "Todo not found"
-          }
-        },
-        "operationId": "delete-todo",
+      "put": {
+        "summary": "ML PUT",
+        "description": "",
         "x-zuplo-route": {
           "corsPolicy": "none",
           "handler": {
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "https://todo.zuplo.io"
+              "baseUrl": "https://${env.ORIGEN_ATT}/gw/cancelSubscription/1.0.0/ATTMx/OSBEv/Mtx/subscription/cancelSubscription"
             }
+          },
+          "policies": {
+            "inbound": []
           }
         },
-        "tags": ["Todo"]
+        "operationId": "new-route-a76cd5ed"
+      }
+    },
+    "/gw/UnifiedProductOrderCapture/1.0.0/v2/postOrder": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "ML Post",
+        "description": "",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://${env.ORIGEN_ATT}/gw/UnifiedProductOrderCapture/1.0.0/v2/postOrder"
+            }
+          },
+          "policies": {
+            "inbound": []
+          }
+        },
+        "operationId": "new-route-fc4a9f6d"
+      }
+    },
+    "/gw/UnifiedProductOrderCapture_V2/1.0.0/v2/postOrder": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "ML POST V2 ",
+        "description": "",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://${env.ORIGEN_ATT}/gw/UnifiedProductOrderCapture_V2/1.0.0/v2/postOrder"
+            }
+          },
+          "policies": {
+            "inbound": []
+          }
+        },
+        "operationId": "new-route-c193cdaa",
+        "additionalOperationContext": {
+          "oasFilePath": "/config/routes.oas.json",
+          "method": "post",
+          "path": "/gw/UnifiedProductOrderCapture_V2/1.0.0/v2/postOrder",
+          "pathZuploConfig": {
+            "pathMode": "open-api"
+          }
+        }
       }
     }
   },
@@ -254,7 +141,12 @@
             "description": "The user ID who owns the todo"
           }
         },
-        "required": ["id", "title", "completed", "userId"]
+        "required": [
+          "id",
+          "title",
+          "completed",
+          "userId"
+        ]
       },
       "CreateTodo": {
         "description": "The request body for creating a new todo. Only a title and userId are required.",
@@ -274,7 +166,10 @@
             "description": "The user ID who owns the todo"
           }
         },
-        "required": ["title", "userId"]
+        "required": [
+          "title",
+          "userId"
+        ]
       },
       "UpdateTodo": {
         "description": "The request body for updating a todo. All fields are optional so you can patch individual properties.",
