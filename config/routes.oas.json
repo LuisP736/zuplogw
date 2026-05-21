@@ -30,7 +30,8 @@
                   "name": "host",
                   "value": "digitalservices.att.com.mx"
                 }
-              ]
+              ],
+              "followHostHeader": false
             }
           },
           "policies": {
@@ -59,7 +60,8 @@
                   "name": "host",
                   "value": "digitalservices.att.com.mx"
                 }
-              ]
+              ],
+              "followHostHeader": false
             }
           },
           "policies": {
@@ -69,63 +71,64 @@
         "operationId": "new-route-a76cd5ed"
       }
     },
-     "/gw/UnifiedProductOrderCapture/1.0.0/v2/postOrder": {
-    "x-zuplo-path": {
-      "pathMode": "open-api"
-    },
-    "post": {
-      "summary": "ML POST V1",
-      "x-zuplo-route": {
-        "corsPolicy": "none",
-        "handler": {
-          "export": "urlForwardHandler",
-          "module": "$import(@zuplo/runtime)",
-          "options": {
-            "baseUrl": "${env.ORIGEN_ATT}",
-            "headers": [
-              {
-                "name": "host",
-                "value": "digitalservices.att.com.mx"
-              }
-            ]
+    "/gw/UnifiedProductOrderCapture/1.0.0/v2/postOrder": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "ML POST V1",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.ORIGEN_ATT}",
+              "headers": [
+                {
+                  "name": "host",
+                  "value": "digitalservices.att.com.mx"
+                }
+              ],
+              "followHostHeader": false
+            }
+          },
+          "policies": {
+            "inbound": []
           }
         },
-        "policies": {
-          "inbound": []
-        }
-      },
-      "operationId": "post-order-v1"
-    }
-  },
-  "/gw/UnifiedProductOrderCapture_V2/1.0.0/v2/postOrder": {
-    "x-zuplo-path": {
-      "pathMode": "open-api"
+        "operationId": "post-order-v1"
+      }
     },
-    "post": {
-      "summary": "ML POST V2",
-      "x-zuplo-route": {
-        "corsPolicy": "none",
-        "handler": {
-          "export": "urlForwardHandler",
-          "module": "$import(@zuplo/runtime)",
-          "options": {
-            "baseUrl": "${env.ORIGEN_ATT}",
-            "headers": [
-              {
-                "name": "host",
-                "value": "digitalservices.att.com.mx"
-              }
-            ]
+    "/gw/UnifiedProductOrderCapture_V2/1.0.0/v2/postOrder": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "ML POST V2",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.ORIGEN_ATT}",
+              "headers": [
+                {
+                  "name": "host",
+                  "value": "digitalservices.att.com.mx"
+                }
+              ],
+              "followHostHeader": false
+            }
+          },
+          "policies": {
+            "inbound": []
           }
         },
-        "policies": {
-          "inbound": []
-        }
-      },
-      "operationId": "new-route-c193cdaa"
+        "operationId": "new-route-c193cdaa"
+      }
     }
-  }
-
   },
   "tags": [
     {
