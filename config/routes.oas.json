@@ -39,7 +39,7 @@
       "x-zuplo-path": {
         "pathMode": "open-api"
       },
-      "put": {
+      "post": {
         "summary": "ML PUT",
         "description": "",
         "x-zuplo-route": {
@@ -94,7 +94,9 @@
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "${env.ORIGEN_ATT}",
+              "baseUrl": "${env.ORIGEN_ATT}"
+            },
+            "forwardOptions": {
               "allowInsecureCertificate": true
             }
           },
