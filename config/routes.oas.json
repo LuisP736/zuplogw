@@ -93,7 +93,13 @@
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "${env.ORIGEN_ATT}"
+              "baseUrl": "${env.ORIGEN_ATT}",
+              "headers": [
+                {
+                  "name": "host",
+                  "value": "https://digitalservices.att.com.mx/"
+                }
+              ]
             }
           },
           "policies": {
@@ -103,6 +109,7 @@
         "operationId": "new-route-c193cdaa"
       }
     }
+
   },
   "tags": [
     {
