@@ -3,10 +3,10 @@
   "info": {
     "version": "1.0.0",
     "title": "Todo API",
-    "description": "A simple task management API that lets you create, read, update, and delete todo items. Use this API to build productivity apps, task trackers, or integrate task management into your existing workflows.\n\n## Getting Started\n\nAll endpoints accept and return JSON. To create your first todo, send a `POST` request to `/todos` with a title and userId.\n\n## Authentication\n\nThis sample API does not require authentication. Add [API key authentication](https://zuplo.com/docs/policies/api-key-inbound) or any other policy via your Zuplo gateway configuration.",
+    "description": "A simple task management API that lets you create, read, update, and delete todo items. Use this API to build productivity apps, task trackers, or integrate task management into your existing workflows.\n\n## Getting Started\n\nAll endpoints accept and return JSON. To create your first todo, send a `POST` request to `/todos` with a title and userId.\n\n## Authentication\n\nThis sample API does not require authentication. Add [API key authentication](https://zuplo.com) or any other policy via your Zuplo gateway configuration.",
     "contact": {
       "name": "API Support",
-      "url": "https://zuplo.com/docs",
+      "url": "https://zuplo.com",
       "email": "support@zuplo.com"
     }
   },
@@ -24,7 +24,13 @@
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "${env.ORIGEN_ATT}"
+              "baseUrl": "${env.ORIGEN_ATT}",
+              "headers": [
+                {
+                  "name": "host",
+                  "value": "digitalservices.att.com.mx"
+                }
+              ]
             }
           },
           "policies": {
@@ -47,7 +53,13 @@
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "${env.ORIGEN_ATT}"
+              "baseUrl": "${env.ORIGEN_ATT}",
+              "headers": [
+                {
+                  "name": "host",
+                  "value": "digitalservices.att.com.mx"
+                }
+              ]
             }
           },
           "policies": {
@@ -57,58 +69,62 @@
         "operationId": "new-route-a76cd5ed"
       }
     },
-    "/gw/UnifiedProductOrderCapture/1.0.0/v2/postOrder": {
-      "x-zuplo-path": {
-        "pathMode": "open-api"
-      },
-      "post": {
-        "summary": "ML Post",
-        "description": "",
-        "x-zuplo-route": {
-          "corsPolicy": "none",
-          "handler": {
-            "export": "urlForwardHandler",
-            "module": "$import(@zuplo/runtime)",
-            "options": {
-              "baseUrl": "${env.ORIGEN_ATT}"
-            }
-          },
-          "policies": {
-            "inbound": []
-          }
-        },
-        "operationId": "new-route-fc4a9f6d"
-      }
+     "/gw/UnifiedProductOrderCapture/1.0.0/v2/postOrder": {
+    "x-zuplo-path": {
+      "pathMode": "open-api"
     },
-    "/gw/UnifiedProductOrderCapture_V2/1.0.0/v2/postOrder": {
-      "x-zuplo-path": {
-        "pathMode": "open-api"
-      },
-      "post": {
-        "summary": "ML POST V2 ",
-        "description": "",
-        "x-zuplo-route": {
-          "corsPolicy": "none",
-          "handler": {
-            "export": "urlForwardHandler",
-            "module": "$import(@zuplo/runtime)",
-            "options": {
-              "baseUrl": "${env.ORIGEN_ATT}",
-              "headers": [
-                {
-                  "name": "host",
-                  "value": "https://digitalservices.att.com.mx/"
-                }
-              ]
-            }
-          },
-          "policies": {
-            "inbound": []
+    "post": {
+      "summary": "ML POST V1",
+      "x-zuplo-route": {
+        "corsPolicy": "none",
+        "handler": {
+          "export": "urlForwardHandler",
+          "module": "$import(@zuplo/runtime)",
+          "options": {
+            "baseUrl": "${env.ORIGEN_ATT}",
+            "headers": [
+              {
+                "name": "host",
+                "value": "digitalservices.att.com.mx"
+              }
+            ]
           }
         },
-        "operationId": "new-route-c193cdaa"
-      }
+        "policies": {
+          "inbound": []
+        }
+      },
+      "operationId": "post-order-v1"
     }
+  },
+  "/gw/UnifiedProductOrderCapture_V2/1.0.0/v2/postOrder": {
+    "x-zuplo-path": {
+      "pathMode": "open-api"
+    },
+    "post": {
+      "summary": "ML POST V2",
+      "x-zuplo-route": {
+        "corsPolicy": "none",
+        "handler": {
+          "export": "urlForwardHandler",
+          "module": "$import(@zuplo/runtime)",
+          "options": {
+            "baseUrl": "${env.ORIGEN_ATT}",
+            "headers": [
+              {
+                "name": "host",
+                "value": "digitalservices.att.com.mx"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "inbound": []
+        }
+      },
+      "operationId": "new-route-c193cdaa"
+    }
+  }
 
   },
   "tags": [
