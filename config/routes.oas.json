@@ -25,13 +25,7 @@
             "module": "$import(@zuplo/runtime)",
             "options": {
               "baseUrl": "${env.ORIGEN_ATT}",
-              "headers": [
-                {
-                  "name": "host",
-                  "value": "digitalservices.att.com.mx"
-                }
-              ],
-              "followHostHeader": false
+              "allowInsecureCertificate": true
             }
           },
           "policies": {
@@ -55,13 +49,7 @@
             "module": "$import(@zuplo/runtime)",
             "options": {
               "baseUrl": "${env.ORIGEN_ATT}",
-              "headers": [
-                {
-                  "name": "host",
-                  "value": "digitalservices.att.com.mx"
-                }
-              ],
-              "followHostHeader": false
+              "allowInsecureCertificate": true
             }
           },
           "policies": {
@@ -84,13 +72,7 @@
             "module": "$import(@zuplo/runtime)",
             "options": {
               "baseUrl": "${env.ORIGEN_ATT}",
-              "headers": [
-                {
-                  "name": "host",
-                  "value": "digitalservices.att.com.mx"
-                }
-              ],
-              "followHostHeader": false
+              "allowInsecureCertificate": true
             }
           },
           "policies": {
@@ -113,13 +95,7 @@
             "module": "$import(@zuplo/runtime)",
             "options": {
               "baseUrl": "${env.ORIGEN_ATT}",
-              "headers": [
-                {
-                  "name": "host",
-                  "value": "digitalservices.att.com.mx"
-                }
-              ],
-              "followHostHeader": false
+              "allowInsecureCertificate": true
             }
           },
           "policies": {
