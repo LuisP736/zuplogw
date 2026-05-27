@@ -11,7 +11,7 @@
     }
   },
   "paths": {
-    "/gw/usageConsumption/5.0.0/queryUsageConsumption/:dn": {
+    "/usageConsumption/5.0.0/queryUsageConsumption/{dn}": {
       "x-zuplo-path": {
         "pathMode": "open-api"
       },
@@ -34,7 +34,7 @@
         "operationId": "new-route-b533e432"
       }
     },
-    "/gw/cancelSubscription/1.0.0/ATTMx/OSBEv/Mtx/subscription/cancelSubscription": {
+    "/cancelSubscription/1.0.0/ATTMx/OSBEv/Mtx/subscription/cancelSubscription": {
       "x-zuplo-path": {
         "pathMode": "open-api"
       },
@@ -57,7 +57,7 @@
         "operationId": "new-route-39208488"
       }
     },
-    "/gw/UnifiedProductOrderCapture/1.0.0/v2/postOrder": {
+    "/UnifiedProductOrderCapture/1.0.0/v2/postOrder": {
       "x-zuplo-path": {
         "pathMode": "open-api"
       },
@@ -80,7 +80,7 @@
         "operationId": "new-route-cec6deed"
       }
     },
-    "/gw/UnifiedProductOrderCapture_V2/1.0.0/v2/postOrder": {
+    "/UnifiedProductOrderCapture_V2/1.0.0/v2/postOrder": {
       "x-zuplo-path": {
         "pathMode": "open-api"
       },
